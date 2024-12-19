@@ -88,7 +88,13 @@ Ocena:
 To bring up the application using Docker Compose, run the following command:
 
 ```bash
-docker-compose -f docker-compose-app.yml up -d
+docker-compose -f docker-compose-app.yml up -d --build
+```
+
+To close it:
+
+```bash
+docker-compose -f docker-compose-app.yml down
 ```
 
 ### Database in docker, backend in native:
@@ -96,10 +102,10 @@ docker-compose -f docker-compose-app.yml up -d
 To bring up only database using Docker Compose, run the following command:
 
 ```bash
-docker-compose up -d
+docker-compose up -d --build
 ```
 
-### Do shutdown docker
+To close it:
 
 ```bash
 docker-compose down
@@ -107,8 +113,20 @@ docker-compose down
 
 ### To Clear Unused Docker Resources
 
-To clean up unused Docker resources and free up disk space, run the following command:
+To clean up unused Docker resources and free up disk space:
 
 ```bash
-docker system prune
+docker system prune -a
+```
+
+To clean up unused Docker Images and free up disk space:
+
+```bash
+docker image prune -a
+```
+
+To clean up unused Docker Volumes and free up disk space:
+
+```bash
+docker volume prune -a
 ```
