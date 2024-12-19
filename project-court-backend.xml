@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>project-court-backend</name>
+    </assembly>
+    <members>
+        <member name="M:project_court_backend.Controllers.GradeController.GetAll">
+            <summary>Get all grades</summary>
+        </member>
+        <member name="M:project_court_backend.Controllers.GradeController.add(project_court_backend.Models.DTO.Grade.GradeRequest)">
+            <summary>Add new grade</summary>
+            <response code ="400">Grade already exists</response>
+        </member>
+        <member name="T:project_court_backend.Migrations.InitialCreate">
+            <inheritdoc />
+        </member>
+        <member name="M:project_court_backend.Migrations.InitialCreate.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:project_court_backend.Migrations.InitialCreate.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:project_court_backend.Migrations.InitialCreate.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>
