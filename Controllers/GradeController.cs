@@ -10,7 +10,7 @@ public class GradeController(GradeService gradeService) : ControllerBase
 {
     /// <summary>Get all grades</summary>
     /// <response code="200">Grade add successfully</response>
-    [HttpGet]
+    [HttpGet("/api/user/getAll")]
     public List<GradeResponse> GetAll()
     {
         return gradeService.getAllGrades();
@@ -21,7 +21,7 @@ public class GradeController(GradeService gradeService) : ControllerBase
     /// <param name="courtId">Court Id</param>
     /// <response code="400">Grade already exists</response>
     /// <response code="200">Grade add successfully</response>
-    [HttpPost("userId/{userId}/court/{courtId}")]
+    [HttpPost("/api/user/{userId}/court/{courtId}")]
     public void addGrade(int userId, int courtId, [FromBody]GradeRequest gradeRequest)    //FromQuery bierze z parametr�w
     {
         gradeService.addGrade(userId, courtId, gradeRequest);
@@ -31,7 +31,7 @@ public class GradeController(GradeService gradeService) : ControllerBase
     /// <param name="userId">User Id</param>
     /// <param name="courtId">Court Id</param>
     /// <response code="200">Grade edit successfully</response>
-    [HttpPut("userId/{userId}/court/{courtId}")]
+    [HttpPut("/api/user/{userId}/court/{courtId}")]
     public void editGrade(int userId, int courtId, [FromBody]GradeRequest gradeRequest)    //FromQuery bierze z parametr�w
     {
         gradeService.editGrade(userId, courtId, gradeRequest.grade);

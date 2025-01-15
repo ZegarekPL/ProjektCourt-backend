@@ -10,7 +10,7 @@ public class CourtController(CourtService courtService) : ControllerBase
 {
     /// <summary>Get all courts</summary>
     /// <response code="200">Success</response>
-    [HttpGet]
+    [HttpGet("/api/court/getAll")]
     public async Task<List<CourtResponse>> GetAllCourts()
     {
         return await courtService.getAllCourts();
@@ -19,7 +19,7 @@ public class CourtController(CourtService courtService) : ControllerBase
     /// <summary>Add new court</summary>
     /// <response code ="400">Court already exists</response>
     /// <response code="200">Success</response>
-    [HttpPost]
+    [HttpPost("/api/court/add")]
     public void addCourt([FromBody]CourtRequest courtRequest)
     {
         courtService.addCourt(courtRequest);
@@ -28,13 +28,13 @@ public class CourtController(CourtService courtService) : ControllerBase
     /// <summary>Delete court</summary>
     /// <response code ="400">Court already exists</response>
     /// <response code="200">Success</response>
-    [HttpDelete("{courtId}")]
+    [HttpDelete("/api/court/{courtId}/delete")]
     public void deleteCourt(int courtId)
     {
         courtService.deleteCourt(courtId);
     } 
     
-    [HttpPut("{courtId}")]
+    [HttpPut("/api/court/{courtId}/edit")]
     public void UpdateCourt(int courtId, [FromBody] CourtRequest courtRequest)
     {
         courtService.updateCourt(courtId, courtRequest);

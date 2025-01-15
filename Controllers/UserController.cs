@@ -12,7 +12,7 @@ public class UserController(UserService userService) : ControllerBase
 {
     /// <summary>Get all users</summary>
     /// <response code="200">Success</response>
-    [HttpGet]
+    [HttpGet("/api/user")]
     public List<UserResponse> GetAll()
     {
         return userService.getAllUsers();
@@ -21,7 +21,7 @@ public class UserController(UserService userService) : ControllerBase
     /// <summary>Add new user</summary>
     /// <response code ="400">User already exists</response>
     /// <response code="200">Success</response>
-    [HttpPost]
+    [HttpPost("/api/user/register")]
     public void addUser([FromBody]UserRequest userRequest)    //FromQuery bierze z parametr�w
     {
         userService.addUser(userRequest);
@@ -29,7 +29,7 @@ public class UserController(UserService userService) : ControllerBase
     
     /// <summary>Get logged in user</summary>
     /// <response code="200">Success</response>
-    [HttpGet("me")]
+    [HttpGet("/api/user/me")]
     public List<UserResponse> GetLoggedInUsers()
     {
         return userService.getAdminUser();
@@ -40,7 +40,7 @@ public class UserController(UserService userService) : ControllerBase
     /// <param name="newRole">The new role to assign to the user</param>
     /// <response code="400">User doesn't exist or role is the same</response>
     /// <response code="200">Role updated successfully</response>
-    [HttpPut("{userId}/role")]
+    [HttpPut("/api/user/{userId}/role")]
     public IActionResult ChangeRole(int userId, [FromQuery] Role newRole)
     {
         try

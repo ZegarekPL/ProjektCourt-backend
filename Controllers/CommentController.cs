@@ -11,7 +11,7 @@ public class CommentController(CommentService commentService) : ControllerBase
     /// <summary>Get all comment for court</summary>
     /// <param name="courtId">Court Id</param>
     /// <response code="200">Success</response>
-    [HttpGet("{courtId}")]
+    [HttpGet("/api/comment/{courtId}")]
     public List<CommentResponse> GetAll(int courtId)
     {
         return commentService.getAllComments(courtId);
@@ -22,7 +22,7 @@ public class CommentController(CommentService commentService) : ControllerBase
     /// <param name="courtId">Court Id</param>
     /// <response code="400">Court already exists</response>
     /// <response code="200">Success</response>
-    [HttpPost("userId/{userId}/court/{courtId}")]
+    [HttpPost("/api/comment/user/{userId}/court/{courtId}")]
     public void addComment(int userId, int courtId, [FromBody]CommentRequest commentRequest)    //FromQuery bierze z parametr�w
     {
         commentService.addComment(userId,  courtId, commentRequest.content);
