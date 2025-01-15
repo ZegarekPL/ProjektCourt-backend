@@ -4,6 +4,18 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowLocalhost3000", builder =>
+    {
+        builder.WithOrigins("http://localhost:3000")
+            .AllowAnyMethod()
+            .AllowAnyHeader()
+            .AllowCredentials()
+            .SetIsOriginAllowedToAllowWildcardSubdomains();
+    });
+});
+
 builder.Services.AddControllers();
 
 builder.Services.AddDbContext<DatabaseContext>(options =>
@@ -31,6 +43,8 @@ using (var scope = app.Services.CreateScope())
 }
 
 app.UseMiddleware<ExceptionHandlingMiddleware>();
+
+app.UseCors("AllowLocalhost3000");
 
 // To enable Swagger for API documentation when the backend is running in Docker
 // This makes Swagger available regardless of the environment (e.g., Development, Production).
