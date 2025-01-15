@@ -4,12 +4,77 @@
         <name>project-court-backend</name>
     </assembly>
     <members>
+        <member name="M:project_court_backend.Controllers.CommentController.GetAll(System.Int32)">
+            <summary>Get all comment for court</summary>
+            <param name="courtId">Court Id</param>
+            <response code="200">Success</response>
+        </member>
+        <member name="M:project_court_backend.Controllers.CommentController.addComment(System.Int32,System.Int32,project_court_backend.Models.DTO.Comment.CommentRequest)">
+            <summary>Add new comment for court</summary>
+            <param name="userId">User Id</param>
+            <param name="courtId">Court Id</param>
+            <response code="400">Court already exists</response>
+            <response code="200">Success</response>
+        </member>
+        <member name="M:project_court_backend.Controllers.CourtController.GetAllCourts">
+            <summary>Get all courts</summary>
+            <response code="200">Success</response>
+        </member>
+        <member name="M:project_court_backend.Controllers.CourtController.addCourt(project_court_backend.Models.DTO.Court.CourtRequest)">
+            <summary>Add new court</summary>
+            <response code ="400">Court already exists</response>
+            <response code="200">Success</response>
+        </member>
+        <member name="M:project_court_backend.Controllers.CourtController.deleteCourt(System.Int32)">
+            <summary>Delete court</summary>
+            <response code ="400">Court already exists</response>
+            <response code="200">Success</response>
+        </member>
         <member name="M:project_court_backend.Controllers.GradeController.GetAll">
             <summary>Get all grades</summary>
+            <response code="200">Grade add successfully</response>
         </member>
-        <member name="M:project_court_backend.Controllers.GradeController.add(project_court_backend.Models.DTO.Grade.GradeRequest)">
+        <member name="M:project_court_backend.Controllers.GradeController.addGrade(System.Int32,System.Int32,project_court_backend.Models.DTO.Grade.GradeRequest)">
             <summary>Add new grade</summary>
-            <response code ="400">Grade already exists</response>
+            <param name="userId">User Id</param>
+            <param name="courtId">Court Id</param>
+            <response code="400">Grade already exists</response>
+            <response code="200">Grade add successfully</response>
+        </member>
+        <member name="M:project_court_backend.Controllers.GradeController.editGrade(System.Int32,System.Int32,project_court_backend.Models.DTO.Grade.GradeRequest)">
+            <summary>Edit grade</summary>
+            <param name="userId">User Id</param>
+            <param name="courtId">Court Id</param>
+            <response code="200">Grade edit successfully</response>
+        </member>
+        <member name="M:project_court_backend.Controllers.SurfaceTypeController.GetAll">
+            <summary>Get all Surface Type</summary>
+            <response code="200">Success</response>
+        </member>
+        <member name="M:project_court_backend.Controllers.SurfaceTypeController.add(project_court_backend.Models.DTO.SurfaceType.SurfaceTypeRequest)">
+            <summary>Add new Surface Type</summary>
+            <response code ="400">Surface Type already exists</response>
+            <response code="200">Success</response>
+        </member>
+        <member name="M:project_court_backend.Controllers.UserController.GetAll">
+            <summary>Get all users</summary>
+            <response code="200">Success</response>
+        </member>
+        <member name="M:project_court_backend.Controllers.UserController.addUser(project_court_backend.Models.DTO.User.UserRequest)">
+            <summary>Add new user</summary>
+            <response code ="400">User already exists</response>
+            <response code="200">Success</response>
+        </member>
+        <member name="M:project_court_backend.Controllers.UserController.GetLoggedInUsers">
+            <summary>Get logged in user</summary>
+            <response code="200">Success</response>
+        </member>
+        <member name="M:project_court_backend.Controllers.UserController.ChangeRole(System.Int32,project_court_backend.Models.Entity.Role)">
+            <summary>Change user role</summary>
+            <param name="userId">ID of the user whose role is to be changed</param>
+            <param name="newRole">The new role to assign to the user</param>
+            <response code="400">User doesn't exist or role is the same</response>
+            <response code="200">Role updated successfully</response>
         </member>
         <member name="T:project_court_backend.Migrations.InitialCreate">
             <inheritdoc />
@@ -21,6 +86,18 @@
             <inheritdoc />
         </member>
         <member name="M:project_court_backend.Migrations.InitialCreate.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:project_court_backend.Migrations.Grade1">
+            <inheritdoc />
+        </member>
+        <member name="M:project_court_backend.Migrations.Grade1.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:project_court_backend.Migrations.Grade1.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:project_court_backend.Migrations.Grade1.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
     </members>

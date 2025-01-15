@@ -9,18 +9,32 @@ namespace project_court_backend.Controllers;
 public class GradeController(GradeService gradeService) : ControllerBase
 {
     /// <summary>Get all grades</summary>
+    /// <response code="200">Grade add successfully</response>
     [HttpGet]
     public List<GradeResponse> GetAll()
     {
-        return gradeService.getAll();
+        return gradeService.getAllGrades();
     }
 
     /// <summary>Add new grade</summary>
-    /// <response code ="400">Grade already exists</response>
-    [HttpPost]
-    public void add([FromBody]GradeRequest gradeRequest)    //FromQuery bierze z parametr�w
+    /// <param name="userId">User Id</param>
+    /// <param name="courtId">Court Id</param>
+    /// <response code="400">Grade already exists</response>
+    /// <response code="200">Grade add successfully</response>
+    [HttpPost("userId/{userId}/court/{courtId}")]
+    public void addGrade(int userId, int courtId, [FromBody]GradeRequest gradeRequest)    //FromQuery bierze z parametr�w
     {
-        gradeService.add(gradeRequest);
+        gradeService.addGrade(userId, courtId, gradeRequest);
+    } 
+    
+    /// <summary>Edit grade</summary>
+    /// <param name="userId">User Id</param>
+    /// <param name="courtId">Court Id</param>
+    /// <response code="200">Grade edit successfully</response>
+    [HttpPut("userId/{userId}/court/{courtId}")]
+    public void editGrade(int userId, int courtId, [FromBody]GradeRequest gradeRequest)    //FromQuery bierze z parametr�w
+    {
+        gradeService.editGrade(userId, courtId, gradeRequest.grade);
     } 
 }
 

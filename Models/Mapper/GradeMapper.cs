@@ -7,11 +7,11 @@ public class GradeMapper
 {
     public static GradeResponse Map(Grade grade)
     {
-        return new GradeResponse { Id = grade.Id, value = grade.value };
+        return new GradeResponse { Id = grade.Id, userId = grade.UserId , grade = grade.grade , courtId = grade.CourtId};
     }
 
     public static Grade Map(GradeRequest gradeRequest)
     {
-        return new Grade {value = gradeRequest.value };
+        return new Grade {grade = gradeRequest.grade  };
     }
 }

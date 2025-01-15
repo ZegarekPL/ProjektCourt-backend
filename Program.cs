@@ -15,7 +15,12 @@ builder.Services.AddSwaggerGen(s =>
     var filePath = Path.Combine(AppContext.BaseDirectory, "project-court-backend.xml");
     s.IncludeXmlComments(filePath);
 });
+
+builder.Services.AddScoped<CommentService>();
+builder.Services.AddScoped<CourtService>();
 builder.Services.AddScoped<GradeService>();
+builder.Services.AddScoped<SurfaceTypeService>();
+builder.Services.AddScoped<UserService>();
 
 var app = builder.Build();
 

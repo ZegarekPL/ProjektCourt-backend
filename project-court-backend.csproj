@@ -35,7 +35,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Migrations\" />
+    <Compile Remove="Migrations\20250115130957_Court7.Designer.cs" />
+    <Compile Remove="Migrations\20250115145457_Court11.cs" />
+    <Compile Remove="Migrations\20250115145457_Court11.Designer.cs" />
+    <Compile Remove="Migrations\20250115122407_Court5.Designer.cs" />
+    <Compile Remove="Migrations\20250115122407_Court5.cs" />
   </ItemGroup>
 
 </Project>
