@@ -2,6 +2,7 @@ using HttpExceptions.Exceptions;
 using Microsoft.EntityFrameworkCore;
 using project_court_backend.Configuration;
 using project_court_backend.Models.DTO.Court;
+using project_court_backend.Models.Entity;
 using project_court_backend.Models.Mapper;
 
 namespace project_court_backend.Services;
@@ -12,19 +13,39 @@ namespace project_court_backend.Services;
         public async Task<List<CourtResponse>> getAllCourts()
         {
             var courts = await databaseContext.Court
-                .ToListAsync();  // Asynchroniczne pobranie danych z tabeli Court
+                .ToListAsync();
 
             var courtResponses = new List<CourtResponse>();
 
             foreach (var court in courts)
             {
-                var courtResponse = await CourtMapper.MapAsync(court, databaseContext);  // Asynchroniczne mapowanie
+                var courtResponse = await CourtMapper.MapAsync(court, databaseContext);
                 courtResponses.Add(courtResponse);
             }
 
             return courtResponses;
         }
 
+        public async Task<CourtResponse> getCourtById(int courtId, int userId)
+        {
+            var court = await databaseContext.Court
+                .FirstOrDefaultAsync(c => c.Id == courtId);
+            
+            if (court == null)
+            {
+                throw new NotFoundException("Court not found");
+            }
+
+            var userGrade = await databaseContext.Grades
+                .Where(g => g.CourtId == courtId && g.UserId == userId)
+                .Select(g => g.grade) 
+                .FirstOrDefaultAsync();
+            
+            var courtResponse = await CourtMapper.MapAsync(court, databaseContext);
+            
+            return courtResponse;
+        }
+        
         public void addCourt(CourtRequest courtRequest)
         {
             var surfaceTypeExists = databaseContext.SurfaceType
@@ -55,7 +76,7 @@ namespace project_court_backend.Services;
         public void deleteCourt(int courtId)
         {
             var court = databaseContext.Court
-                .Include(c => c.comments)  // Ładujemy powiązane komentarze
+                .Include(c => c.comments)
                 .FirstOrDefault(c => c.Id == courtId);
 
             if (court == null)

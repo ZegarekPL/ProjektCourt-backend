@@ -10,10 +10,9 @@ public class CourtMapper
 {
     public static async Task<CourtResponse> MapAsync(Court court, DatabaseContext databaseContext)
     {
-        // Asynchroniczne pobranie ocen z tabeli Grades
         var gradesCount = await databaseContext.Grades
-            .Where(g => g.CourtId == court.Id)  // Filtrujemy oceny po CourtId
-            .GroupBy(g => g.grade)  // Grupujemy oceny według wartości grade
+            .Where(g => g.CourtId == court.Id)
+            .GroupBy(g => g.grade) 
             .ToDictionaryAsync(g => g.Key, g => g.Count());  // Tworzymy słownik, gdzie klucz to grade, a wartość to liczba wystąpień
 
         return new CourtResponse
@@ -35,7 +34,7 @@ public class CourtMapper
                 grade3 = gradesCount.ContainsKey(3) ? gradesCount[3] : 0,
                 grade4 = gradesCount.ContainsKey(4) ? gradesCount[4] : 0,
                 grade5 = gradesCount.ContainsKey(5) ? gradesCount[5] : 0
-            }
+            },
         };
     }
     

@@ -14,7 +14,7 @@ public class UserService(DatabaseContext databaseContext)
         return databaseContext.User.Select(u => UserMapper.Map(u)).ToList();
     }
     
-    public List<UserResponse> getAdminUser()
+    public UserResponse getAdminUser()
     {
         var adminUser = databaseContext.User
             .Where(u => u.role == Role.Admin)
@@ -29,10 +29,16 @@ public class UserService(DatabaseContext databaseContext)
         
         if (adminUser != null)
         {
-            return new List<UserResponse> { UserMapper.Map(adminUser) };
+            return new UserResponse
+            {
+                Id = adminUser.Id,
+                name = adminUser.name,
+                email = adminUser.email,
+                role = adminUser.role
+            };
         }
         
-        return new List<UserResponse>();
+        return new UserResponse();
     }
 
 

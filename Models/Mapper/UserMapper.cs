@@ -8,7 +8,7 @@ public class UserMapper
 {
     public static UserResponse Map(User user)
     {
-        return new UserResponse { Id = user.Id, name = user.name, email = user.email, password = user.password, role = user.role };
+        return new UserResponse { Id = user.Id, name = user.name, email = user.email, role = user.role };
     }
 
     public static User Map(UserRequest userRequest)

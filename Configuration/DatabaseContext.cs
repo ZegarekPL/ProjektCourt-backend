@@ -5,7 +5,7 @@ namespace project_court_backend.Configuration;
 
 public class DatabaseContext(DbContextOptions<DatabaseContext> options) : DbContext(options)
 {
-    public required DbSet<Comment> Comment { get; init; } // init bo ma byc utworzona tylko raz
+    public required DbSet<Comment> Comment { get; init; }
     public required DbSet<Court> Court { get; init; } 
     public required DbSet<Grade> Grades { get; init; }
     public required DbSet<SurfaceType> SurfaceType { get; init; }

@@ -22,7 +22,7 @@ public class UserController(UserService userService) : ControllerBase
     /// <response code ="400">User already exists</response>
     /// <response code="200">Success</response>
     [HttpPost("/api/user/register")]
-    public void addUser([FromBody]UserRequest userRequest)    //FromQuery bierze z parametr�w
+    public void addUser([FromBody]UserRequest userRequest)
     {
         userService.addUser(userRequest);
     } 
@@ -30,7 +30,7 @@ public class UserController(UserService userService) : ControllerBase
     /// <summary>Get logged in user</summary>
     /// <response code="200">Success</response>
     [HttpGet("/api/user/me")]
-    public List<UserResponse> GetLoggedInUsers()
+    public UserResponse GetLoggedInUsers()
     {
         return userService.getAdminUser();
     }

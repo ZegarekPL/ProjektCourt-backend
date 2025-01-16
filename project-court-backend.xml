@@ -20,6 +20,10 @@
             <summary>Get all courts</summary>
             <response code="200">Success</response>
         </member>
+        <member name="M:project_court_backend.Controllers.CourtController.GetCourtById(System.Int32,System.Int32)">
+            <summary>Get court by Id</summary>
+            <response code="200">Success</response>
+        </member>
         <member name="M:project_court_backend.Controllers.CourtController.addCourt(project_court_backend.Models.DTO.Court.CourtRequest)">
             <summary>Add new court</summary>
             <response code ="400">Court already exists</response>
@@ -98,6 +102,30 @@
             <inheritdoc />
         </member>
         <member name="M:project_court_backend.Migrations.Grade1.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:project_court_backend.Migrations.Grade2">
+            <inheritdoc />
+        </member>
+        <member name="M:project_court_backend.Migrations.Grade2.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:project_court_backend.Migrations.Grade2.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:project_court_backend.Migrations.Grade2.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:project_court_backend.Migrations.Grade4">
+            <inheritdoc />
+        </member>
+        <member name="M:project_court_backend.Migrations.Grade4.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:project_court_backend.Migrations.Grade4.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:project_court_backend.Migrations.Grade4.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
     </members>

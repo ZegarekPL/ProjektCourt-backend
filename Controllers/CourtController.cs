@@ -15,6 +15,14 @@ public class CourtController(CourtService courtService) : ControllerBase
     {
         return await courtService.getAllCourts();
     }
+    
+    /// <summary>Get court by Id</summary>
+    /// <response code="200">Success</response>
+    [HttpGet("/api/court/{courtId}/user/{userId}")]
+    public async Task<CourtResponse> GetCourtById(int courtId, int userId)
+    {
+        return await courtService.getCourtById(courtId, userId);
+    }
 
     /// <summary>Add new court</summary>
     /// <response code ="400">Court already exists</response>
