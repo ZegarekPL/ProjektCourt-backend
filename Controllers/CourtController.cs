@@ -18,10 +18,10 @@ public class CourtController(CourtService courtService) : ControllerBase
     
     /// <summary>Get court by Id</summary>
     /// <response code="200">Success</response>
-    [HttpGet("/api/court/{courtId}/user/{userId}")]
-    public async Task<CourtResponse> GetCourtById(int courtId, int userId)
+    [HttpGet("/api/court/{courtId}")]
+    public async Task<CourtResponse> GetCourtById(int courtId)
     {
-        return await courtService.getCourtById(courtId, userId);
+        return await courtService.getCourtById(courtId);
     }
 
     /// <summary>Add new court</summary>

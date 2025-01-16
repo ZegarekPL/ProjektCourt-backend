@@ -20,7 +20,7 @@
             <summary>Get all courts</summary>
             <response code="200">Success</response>
         </member>
-        <member name="M:project_court_backend.Controllers.CourtController.GetCourtById(System.Int32,System.Int32)">
+        <member name="M:project_court_backend.Controllers.CourtController.GetCourtById(System.Int32)">
             <summary>Get court by Id</summary>
             <response code="200">Success</response>
         </member>

@@ -26,7 +26,7 @@ namespace project_court_backend.Services;
             return courtResponses;
         }
 
-        public async Task<CourtResponse> getCourtById(int courtId, int userId)
+        public async Task<CourtResponse> getCourtById(int courtId)
         {
             var court = await databaseContext.Court
                 .FirstOrDefaultAsync(c => c.Id == courtId);
@@ -35,11 +35,6 @@ namespace project_court_backend.Services;
             {
                 throw new NotFoundException("Court not found");
             }
-
-            var userGrade = await databaseContext.Grades
-                .Where(g => g.CourtId == courtId && g.UserId == userId)
-                .Select(g => g.grade) 
-                .FirstOrDefaultAsync();
             
             var courtResponse = await CourtMapper.MapAsync(court, databaseContext);
             
