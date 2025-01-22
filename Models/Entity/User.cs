@@ -9,4 +9,5 @@ public class User
     public string email { get; set; }
     public string password { get; set; }
     public Role role { get; set; }
+    public double averageGrade { get; set; }
 }

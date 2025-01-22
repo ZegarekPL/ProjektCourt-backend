@@ -8,4 +8,5 @@ public class UserResponse
     public string name { get; set; }
     public string email { get; set; }
     public Role role { get; set; }
+    public double averageGrade { get; set; }
 }

@@ -2,7 +2,7 @@
 using project_court_backend.Models.DTO.Grade;
 using project_court_backend.Models.Mapper;
 using HttpExceptions.Exceptions;
-using project_court_backend.Models.Entity;
+using Microsoft.EntityFrameworkCore;
 
 namespace project_court_backend.Services;
 
@@ -28,16 +28,21 @@ public class GradeService(DatabaseContext databaseContext)
         {
             throw new BadRequestException("Grade must be between 1 and 5");
         }
-        
-        var grade = new Grade
+
+        try
         {
-            UserId = userId,
-            grade = gradeRequest.grade,
-            CourtId = courtId
-        };
-        
-        databaseContext.Grades.Add(grade);
-        databaseContext.SaveChanges();
+            databaseContext.Database.ExecuteSqlRaw(
+                "SELECT InsertGrade({0}, {1}, {2})",
+                userId,
+                gradeRequest.grade,
+                courtId
+            );
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("aaaaaaaaaaaaaa");
+            throw;
+        }
     }
     
     public void editGrade(int userId, int courtId, double newGrade)

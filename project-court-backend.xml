@@ -128,5 +128,41 @@
         <member name="M:project_court_backend.Migrations.Grade4.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
+        <member name="T:project_court_backend.Migrations.UserAverageGrade">
+            <inheritdoc />
+        </member>
+        <member name="M:project_court_backend.Migrations.UserAverageGrade.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:project_court_backend.Migrations.UserAverageGrade.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:project_court_backend.Migrations.UserAverageGrade.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:project_court_backend.Migrations.StoredProc">
+            <inheritdoc />
+        </member>
+        <member name="M:project_court_backend.Migrations.StoredProc.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:project_court_backend.Migrations.StoredProc.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:project_court_backend.Migrations.StoredProc.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:project_court_backend.Migrations.StoredProc2">
+            <inheritdoc />
+        </member>
+        <member name="M:project_court_backend.Migrations.StoredProc2.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:project_court_backend.Migrations.StoredProc2.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:project_court_backend.Migrations.StoredProc2.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
     </members>
 </doc>
