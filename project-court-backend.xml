@@ -4,18 +4,6 @@
         <name>project-court-backend</name>
     </assembly>
     <members>
-        <member name="M:project_court_backend.Controllers.CommentController.GetAll(System.Int32)">
-            <summary>Get all comment for court</summary>
-            <param name="courtId">Court Id</param>
-            <response code="200">Success</response>
-        </member>
-        <member name="M:project_court_backend.Controllers.CommentController.addComment(System.Int32,System.Int32,project_court_backend.Models.DTO.Comment.CommentRequest)">
-            <summary>Add new comment for court</summary>
-            <param name="userId">User Id</param>
-            <param name="courtId">Court Id</param>
-            <response code="400">Court already exists</response>
-            <response code="200">Success</response>
-        </member>
         <member name="M:project_court_backend.Controllers.CourtController.GetAllCourts">
             <summary>Get all courts</summary>
             <response code="200">Success</response>

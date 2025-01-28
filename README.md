@@ -39,36 +39,40 @@ Aplikacja do zarządzania kortami.
 
 Role:
 
-| **Id (number)**      | **Role (String)**   |
-|----------------------|---------------------|
-| 1                    | User                |
-| 2                    | Admin               |
-|                      | Osoba niezalogowana |
+Enum:
+- 0 - USER
+- 1 - ADMIN
+
+User:
+
+| **Id (number)**      | **name (string)** | **email (string)** | **password (string)** | **role (number)** | **averageGrade (float)** |
+|----------------------|-------------------|--------------------|-----------------------|-------------------|--------------------------|
+| 1                    | Wiktor            | example@gmail.com  | 123427!Ac             | 1                 | Wiktor                   |
 
 Kort:
 
-| **Id (number)**     | **Nazwa (String)**  | **Lokalizacja (Object)**  | **Typ nawierzchni (number)**  | **Komentarze (number)**            | **Ocena (Object)**                           |
-|---------------------|---------------------|---------------------------|-------------------------------|------------------------------------|----------------------------------------------|
-| 1                   | Kort 1              |  {locX, locY, nazwa }     | idNawierzchni                 | idKomentarzy                       |  {grade1, grade2, grade3, grade4, grade5 }   |
+| **Id (number)**     | **name (string)** | **localization (string)** | **surfaceType (string)** |
+|---------------------|-------------------|---------------------------|--------------------------|
+| 1                   | Kort 1            | Rzeszów                   | Mączka                   |
 
 
 Typ Nawierzchni Kortów:
 
-| **Id (number)**    | **Nazwa (String)**  |
-|--------------------|---------------------|
-| 1                  | Kort 1              |
+| **Id (number)**    | **Nazwa (String)** |
+|--------------------|--------------------|
+| 1                  | Mączka             |
 
 Komentarze:
 
-| **Id (number)**      | **Osoba (id osoby)**  | **Komentarz (id osoby)**  | **Data(Date)**  |
-|----------------------|-----------------------|---------------------------|-----------------|
-| 1                    | 1                     | Przykładowy komantarz     | Data            |
+| **Id (number)**      | **content (string)** | **UserId (number)** | **CourtId (number)** |
+|----------------------|----------------------|---------------------|----------------------|
+| 1                    | Kort jest świetny    | 1                   | 1                    |
 
 Ocena:
 
-| **Id (number)**     | **Ocena (number)**  | **Osoba (id osoby)**  |
-|---------------------|---------------------|-----------------------|
-| 1                   | Od 1 do 5           | 1                     |
+| **Id (number)**     | **UserId (number)** | **grade (number)** | **CourtId (number)**  |
+|---------------------|---------------------|--------------------|-----------------------|
+| 1                   | 1                   | 1 <1,5>            | 1                     |
 
 ## Technologie
 ### Frontend
@@ -84,6 +88,13 @@ Ocena:
 - Docker
 
 ## Details of project progress are in [project releases](https://github.com/ZegarekPL/ProjektCourt-backend/releases)
+
+## Differences between this project and https://github.com/Hirocco/web_lab_proj
+
+- In the Hirocco project the configuration folder is called Properties and in my project it is called Configuration. 
+- In my project the folder with the DTO, entity and with the mappers are in one folder called "Models" where in the Hirocco project the DTO along with the database configuration are in the "data" folder. 
+- The Mappers doesn't exist in Hirocco project
+- The models are in the "Models" folder (in my project models are in "Entity" folder)
 
 ## How to run:
 
